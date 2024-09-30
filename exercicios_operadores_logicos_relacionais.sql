@@ -67,3 +67,32 @@ BEGIN
 END;
 $$
 
+-- Exercicio 1.3 - Fazendo com IF
+DO
+$$
+DECLARE
+    menu INT := valor_aleatorio_entre(1,4);
+    numero1 INT := valor_aleatorio_entre(0,20);
+    numero2 INT := valor_aleatorio_entre(0,20);
+    numero_divisao1 NUMERIC(10,2) := valor_aleatorio_entre(0,20);
+    numero_divisao2 NUMERIC (10,2):= valor_aleatorio_entre(0,20);
+    resultado INT;
+    resultado_divisao NUMERIC(10,2);
+BEGIN
+    RAISE NOTICE 'o menu escolhido foi o %', menu;
+    IF menu = 1 THEN
+        resultado = numero1 + numero2;
+        RAISE NOTICE '% + % = %', numero1, numero2, resultado;
+    ELSEIF menu = 2 THEN
+        resultado = numero1 - numero2;
+        RAISE NOTICE '% - % = %', numero1, numero2, resultado;
+    ELSEIF menu = 3 THEN
+        resultado = numero1 * numero2;
+        RAISE NOTICE '% * % = %', numero1, numero2, resultado;
+    ELSE
+        resultado_divisao = numero_divisao1 / numero_divisao2;
+        RAISE NOTICE '% / % = %', numero_divisao1, numero_divisao2, resultado_divisao;
+    END IF;
+END
+$$
+
