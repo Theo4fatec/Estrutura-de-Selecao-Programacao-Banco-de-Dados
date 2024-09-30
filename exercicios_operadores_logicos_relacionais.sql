@@ -143,3 +143,21 @@ BEGIN
 END;
 $$
 
+--Exercicio 1.4 - Fazendo com CASE
+DO
+$$
+DECLARE
+    valor NUMERIC(10,2) := valor_aleatorio_entre(0,40);
+    lucro NUMERIC(10,2) := valor_aleatorio_entre(0,40);
+BEGIN
+    CASE
+        WHEN valor < 20 THEN
+            lucro = (0.45 * valor) + valor;
+        ELSE
+            lucro = (0.30 * valor) + valor;
+    END CASE;
+    RAISE NOTICE 'O valor do produto sem lucro é %', valor;
+    RAISE NOTICE 'O valor do produto com o lucro é de %', lucro;
+END;
+$$
+
