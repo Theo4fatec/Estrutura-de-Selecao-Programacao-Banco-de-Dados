@@ -38,3 +38,17 @@ BEGIN
 END;
 $$
 
+--Exercicio 1.2 - Fazendo com IF
+DO
+$$
+DECLARE
+    numero INT:= valor_aleatorio_entre(0,20);
+BEGIN
+    IF (numero % 3 = 0) OR (numero % 5 = 0) THEN
+        RAISE NOTICE 'O número % é multiplo de 3 ou 5', numero;
+    ELSE
+        RAISE NOTICE 'O número % não é multiplo de 3 ou 5', numero;
+    END IF;
+END;
+$$
+
