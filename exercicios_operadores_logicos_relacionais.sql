@@ -161,3 +161,50 @@ BEGIN
 END;
 $$
 
+--Exercicio 1.5 - Fazendo com IF
+DO
+$$
+DECLARE
+    salario NUMERIC(10,2) := valor_aleatorio_entre(0,3000);
+    aumento NUMERIC(10,2);
+    salario_final NUMERIC(10,2);
+BEGIN
+    IF salario <= 400 THEN
+        aumento = 0.15 * salario;
+        salario_final = aumento + salario;
+        RAISE NOTICE 'Salario antigo antes do aumento: %', salario;
+        RAISE NOTICE 'Novo salario com aumento: %', salario_final;
+        RAISE NOTICE 'O valor do reajuste ganho: %', aumento;
+        RAISE NOTICE 'O percentual obtido foi: 15%%';
+    ELSEIF salario <= 800 THEN
+        aumento = 0.12 * salario;
+        salario_final = aumento + salario;
+        RAISE NOTICE 'Salario antigo antes do aumento: %', salario;
+        RAISE NOTICE 'Novo salario com aumento: %', salario_final;
+        RAISE NOTICE 'O valor do reajuste ganho: %', aumento;
+        RAISE NOTICE 'O percentual obtido foi: 12%%';
+    ELSEIF salario <= 1200 THEN
+        aumento = 0.10 * salario;
+        salario_final = aumento + salario;
+        RAISE NOTICE 'Salario antigo antes do aumento: %', salario;
+        RAISE NOTICE 'Novo salario com aumento: %', salario_final;
+        RAISE NOTICE 'O valor do reajuste ganho: %', aumento;
+        RAISE NOTICE 'O percentual obtido foi: 10%%';
+    ELSEIF salario <=2000 THEN
+        aumento = 0.07 * salario;
+        salario_final = aumento + salario;
+        RAISE NOTICE 'Salario antigo antes do aumento: %', salario;
+        RAISE NOTICE 'Novo salario com aumento: %', salario_final;
+        RAISE NOTICE 'O valor do reajuste ganho: %', aumento;
+        RAISE NOTICE 'O percentual obtido foi: 7%%';
+    ELSE
+        aumento = 0.04 * salario;
+        salario_final = aumento + salario;
+        RAISE NOTICE 'Salario antigo antes do aumento: %', salario;
+        RAISE NOTICE 'Novo salario com aumento: %', salario_final;
+        RAISE NOTICE 'O valor do reajuste ganho: %', aumento;
+        RAISE NOTICE 'O percentual obtido foi: 4%%';
+    END IF;
+END;
+$$
+
