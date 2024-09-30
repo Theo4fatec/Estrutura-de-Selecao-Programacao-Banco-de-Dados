@@ -23,4 +23,18 @@ BEGIN
 END;
 $$
 
+--Exercicio 1.1 - Fazendo com CASE
+DO
+$$
+DECLARE
+    numero INT := valor_aleatorio_entre(0, 20);
+BEGIN
+    CASE
+        WHEN numero % 3 = 0 THEN
+            RAISE NOTICE 'O numero % é multiplo de 3', numero;
+        WHEN numero % 3 <> 0 THEN
+            RAISE NOTICE 'O numero % não é multiplo de 3', numero;
+    END CASE;
+END;
+$$
 
