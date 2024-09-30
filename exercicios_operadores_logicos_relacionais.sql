@@ -52,3 +52,18 @@ BEGIN
 END;
 $$
 
+--Exercicio 1.2 - Fazendo com CASE
+DO
+$$
+DECLARE
+    numero INT := valor_aleatorio_entre(0,20);
+BEGIN
+    CASE
+        WHEN (numero % 3 = 0) OR (numero % 5 = 0) THEN
+            RAISE NOTICE 'O numero % é multiplo de 3 ou 5', numero;
+        WHEN (numero % 3 <> 0) OR (numero % 5 <> 0) THEN
+            RAISE NOTICE 'O numero % não é multiplo de 3 ou 5', numero;
+    END CASE;
+END;
+$$
+
